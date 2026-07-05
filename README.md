@@ -30,8 +30,8 @@ A high-performance, fully interactive 3D Rubik's Cube simulator built entirely f
 ├── shuffle.js      # Mathematical matrix engine, WCA scrambles, and 3D coordinate tracker
 ├── deck.js         # Dashboard controller: PB caching, macros, stopwatch, and keybindings
 └── README.md       # Project documentation
-🚀 Live Demo
-👉 [Insert Link to Live GitHub Pages or Vercel Demo Here]
+## 🚀 Live Demo
+👉 **[Play the Simulator Here!](https://abaranwal03.github.io/rubiks-cube-simulator/)**
 
 🛠️ Installation & Setup
 Because this project is architected with pure Vanilla HTML, CSS, and JavaScript, there are no heavy dependencies, node modules, or build steps required.
