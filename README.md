@@ -10,7 +10,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](#-license)
 [![Made with Vanilla JS](https://img.shields.io/badge/dependencies-none-brightgreen?style=for-the-badge)](#)
 
-[**🚀 Live Demo**](https://abaranwal03.github.io/Rubikscube/) · [Features](#-key-features) · [Controls](#-controls--interactions) · [Roadmap](#-future-roadmap) · [Contributing](#-contributing)
+[**🚀 Live Demo**](https://abaranwal03.github.io/rubikscube/) · [Features](#-key-features) · [Controls](#-controls--interactions) · [Roadmap](#-future-roadmap) · [Contributing](#-contributing)
 
 ![Rubik's Cube Preview](screenshot.png)
 
@@ -41,92 +41,17 @@ This project renders a fully solvable, speedcubing-grade Rubik's Cube using pure
 ## 📁 Repository Structure
 
 ```text
-├── cube.html       # Core DOM structure, 3D viewport, and dashboard UI
+├── index.html      # Core DOM structure, 3D viewport, and dashboard UI
 ├── styles.css      # 3D CSS transform geometry, visual themes, and grid layouts
 ├── shuffle.js      # Matrix engine, WCA scrambles, and 3D coordinate tracker
 ├── deck.js         # Dashboard controller: PB caching, macros, stopwatch, keybindings
 └── README.md       # Project documentation
-```
-
----
-
-## 🚀 Live Demo
-
-**[▶ Play the Simulator Here](https://abaranwal03.github.io/rubiks-cube-simulator/)**
-
----
-
-## 🛠️ Installation & Setup
-
-This project is pure HTML, CSS, and JavaScript — **zero dependencies, zero build steps, zero node_modules.**
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/yourusername/rubiks-cube-simulator.git
+🚀 Live Demo▶ Play the Simulator Here!🛠️ Installation & SetupThis project is pure HTML, CSS, and JavaScript — zero dependencies, zero build steps, zero node_modules.Bash# 1. Clone the repository
+git clone [https://github.com/abaranwal03/Rubikscube.git](https://github.com/abaranwal03/Rubikscube.git)
 
 # 2. Navigate to the project directory
-cd rubiks-cube-simulator
+cd Rubikscube
 
 # 3. Run it
-# Just open cube.html in any modern browser (Chrome, Firefox, Safari, Edge)
-```
-
----
-
-## 🎮 Controls & Interactions
-
-### 🖱️ Mouse Controls
-
-| Action | Input |
-|---|---|
-| Rotate Camera | Click and drag anywhere in the empty background space |
-| Rotate Face (Clockwise) | Click any outer edge piece |
-| Rotate Face (Counter-Clockwise) | `Shift` + Click any outer edge piece |
-| Rotate Middle Slice | Click and drag any center piece in the desired direction |
-
-### ⌨️ Keyboard Bindings (Standard Notation)
-
-| Key | Move |
-|---|---|
-| `U` | Rotate Top Face |
-| `D` | Rotate Bottom Face |
-| `F` | Rotate Front Face |
-| `B` | Rotate Back Face |
-| `L` | Rotate Left Face |
-| `R` | Rotate Right Face |
-
-> 💡 **Tip:** Hold `Shift` while pressing any key to execute the **prime (counter-clockwise)** version of that move.
-
----
-
-## 🔮 Future Roadmap
-
-- [ ] Migrate the 3D CSS rendering engine to **Three.js (WebGL)** for dynamic lighting, shadows, and realistic plastic textures
-- [ ] Implement an official **WCA 15-second pre-solve inspection timer**
-- [ ] Add interactive data visualization charts (**Ao5, Ao12**) to track solve consistency over time
-
----
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are highly welcome! Feel free to check the [issues page](../../issues) if you'd like to contribute.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
-## 📝 License
-
-This project is open-source and available under the **MIT License**.
-
----
-
-<div align="center">
-
-Made with 🧊 and vanilla JavaScript
-
-</div>
+# Just open index.html in any modern browser (Chrome, Firefox, Safari, Edge)
+🎮 Controls & Interactions🖱️ Mouse ControlsActionInputRotate CameraClick and drag anywhere in the empty background spaceRotate Face (Clockwise)Click any outer edge pieceRotate Face (Counter-Clockwise)Shift + Click any outer edge pieceRotate Middle SliceClick and drag any center piece in the desired direction⌨️ Keyboard Bindings (Standard Notation)KeyMoveURotate Top FaceDRotate Bottom FaceFRotate Front FaceBRotate Back FaceLRotate Left FaceRRotate Right Face💡 Tip: Hold Shift while pressing any key to execute the prime (counter-clockwise) version of that move.🔮 Future Roadmap[ ] Migrate the 3D CSS rendering engine to Three.js (WebGL) for dynamic lighting, shadows, and realistic plastic textures[ ] Implement an official WCA 15-second pre-solve inspection timer[ ] Add interactive data visualization charts (Ao5, Ao12) to track solve consistency over time🤝 ContributingContributions, issues, and feature requests are highly welcome! Feel free to check the issues page if you'd like to contribute.📝 LicenseThis project is open-source and available under the MIT License.Made with 🧊 and vanilla JavaScript
