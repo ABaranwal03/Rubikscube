@@ -1,462 +1,153 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Rubik's cube in Javascript</title>
-<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Rubik's Cube Simulator - Pro Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id = "rubiksCube"></div>
-  <button id="reset-button" onclick="resetView()">Reset</button>
-  <button id="shuffle-button" onclick="shuffleCube()">Shuffle</button>
-  <input  id="shuffle-moves" type="range" min="10" max="50">Moves</button>
-  <button id="rotateTop">Rotate Top</button>
-  <button id="rotateBottom">Rotate Bottom</button>
-  <button id="rotateFront">Rotate Front</button>
-  <button id="rotateBack">Rotate Back</button>
-  <button id="rotateLeft">Rotate Left</button>
-  <button id="rotateRight">Rotate Right</button>
-  <button id = "topPrime">Top'</button>
-  <button id = "rightPrime">Right'</button>
-  <button id = "frontPrime">Front'</button>
-  <button id = "upPrime">Up'</button>
-  <button id = "solveButton">Solve</button>
 
-<div class="scene" id="scene">
-<div class="pivot centered" id="pivot" style="transform: rotateX(-35deg) rotateY(-135deg);">
-<div class="cube" id="cube">
+  <div id="control-panel">
+    <button id="reset-button" onclick="resetView()">Reset Cube</button>
+    <button id="shuffle-button" onclick="shuffleCube()">Shuffle</button>
+    
+    <div class="slider-container">
+      <input id="shuffle-moves" type="range" min="10" max="50" value="25" oninput="document.getElementById('move-count-label').innerText = this.value">
+      <span id="label-text"><span id="move-count-label">25</span> Moves</span>
+    </div>
 
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-<div class="piece">
-<div class="element left"></div>
-<div class="element right"></div>
-<div class="element top"></div>
-<div class="element bottom"></div>
-<div class="element back"></div>
-<div class="element front"></div>
-</div>
-</div>
-</div>
-</div>
-<div id="guide">
-<div class="anchor" id="anchor3" style="transform: translateZ(3px) translateY(-33.33%) rotate(-270deg) translateY(66.67%)"></div>
-<div class="anchor" id="anchor2" style="transform: translateZ(3px) translateY(-33.33%) rotate(-180deg) translateY(66.67%)"></div>
-<div class="anchor" id="anchor1" style="transform: translateZ(3px) translateY(-33.33%) rotate(-90deg) translateY(66.67%)"></div>
-<div class="anchor" id="anchor0" style="transform: translateZ(3px) translateY(-33.33%) rotate(0deg) translateY(66.67%)"></div>
-</div>
+    <button id="solveButton">Auto Solve</button>
+  </div>
 
-<!--
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
-<div class="piece">
-  <div class="element left sticker-blue"></div>
-  <div class="element right sticker-green"></div>
-  <div class="element top sticker-white"></div>
-  <div class="element bottom sticker-yellow"></div>
-  <div class="element back sticker-orange"></div>
-  <div class="element front sticker-red"></div>
-</div>
--->
-<script src="https://threejs.org/build/three.js"></script>
-<script src="https://rawgit.com/cubing/cubing.js/master/dist/cubing.browser.js"></script>
-<script src = "shuffle.js"></script>
+  <div id="side-controls">
+    <p class="control-tip">Tip: Press keys on your keyboard (U, D, F, B, L, R). Hold SHIFT for counter-clockwise twists!</p>
+    <button id="rotateTop" style="display:none;"></button>
+    <button id="rotateBottom" style="display:none;"></button>
+    <button id="rotateFront" style="display:none;"></button>
+    <button id="rotateBack" style="display:none;"></button>
+    <button id="rotateLeft" style="display:none;"></button>
+    <button id="rotateRight" style="display:none;"></button>
+  </div>
 
+  <div id="workspace">
+    <div class="scene" id="scene">
+      <div class="pivot centered" id="pivot" style="transform: rotateX(-35deg) rotateY(-135deg);">
+        <div class="cube" id="cube">
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+          <div class="piece"><div class="element left"></div><div class="element right"></div><div class="element top"></div><div class="element bottom"></div><div class="element back"></div><div class="element front"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tutorial-panel">
+      <h3>Performance Deck</h3>
+      
+      <div class="deck-section">
+        <div id="timer-display">00:00.00</div>
+        <p class="deck-label">SOLVE TIME</p>
+        <p id="pb-display" style="color: #ffd700; font-size: 0.85rem; margin-top: 8px; font-family: monospace; letter-spacing: 0.5px;">
+          Best: --:--.--
+        </p>
+      </div>
+      
+      <div class="deck-section stats-grid">
+        <div>
+          <span id="move-counter">0</span>
+          <p class="deck-label">MOVES</p>
+        </div>
+        <div>
+          <span id="tps-counter">0.0</span>
+          <p class="deck-label">TURNS/SEC</p>
+        </div>
+      </div>
+
+      <div class="deck-section">
+        <h4>Scramble Notation Stack</h4>
+        <div id="scramble-log">Ready for action...</div>
+      </div>
+
+      <div class="deck-section">
+        <h4>Customization Shop</h4>
+        <div class="stats-grid" style="margin-bottom: 10px;">
+          <button class="algo-btn" onclick="setTheme('standard')" style="text-align: center; justify-content: center; margin: 0;">Classic Colors</button>
+          <button class="algo-btn" onclick="setTheme('pastel')" style="text-align: center; justify-content: center; margin: 0;">Pastel Colors</button>
+          <button class="algo-btn" onclick="setBackground('dark')" style="text-align: center; justify-content: center; margin: 0;">Dark Studio</button>
+          <button class="algo-btn" onclick="setBackground('gradient')" style="text-align: center; justify-content: center; margin: 0;">Neon Synth</button>
+        </div>
+        <button class="algo-btn" onclick="toggleBlindfold()" id="btn-blindfold" style="justify-content: center; background: #5c0000 !important; border-color: #ff4d4d !important; margin: 0; width: 100%;">
+          <span style="font-weight: bold; color: #ffcccc;">🙈 Enter Blindfolded Mode</span>
+        </button>
+      </div>
+
+      <div class="deck-section algo-trainer">
+        <h4>Algorithm Trainer</h4>
+        <p class="trainer-tip">Click an entry to auto-execute standard speedcubing fingertrick combos:</p>
+        
+        <button class="algo-btn" onclick="playAlgorithm(['right', 'top', 'right', 'top'])">
+          <span>Sexy Move</span>
+          <small>R U R' U'</small>
+        </button>
+
+        <button class="algo-btn" onclick="playAlgorithm(['right', 'top', 'right', 'top', 'right', 'top', 'right', 'top', 'right', 'top', 'right', 'top'])">
+          <span>Sune (OLL)</span>
+          <small>R U R' U R U2 R'</small>
+        </button>
+
+        <button class="algo-btn" onclick="playAlgorithm(['right', 'top', 'right', 'top', 'right', 'front', 'right', 'right', 'top', 'right', 'top', 'right', 'top', 'right', 'front'])">
+          <span>T-Permutation</span>
+          <small>15-Move PLL Combo</small>
+        </button>
+      </div>
+
+      <div class="deck-section algo-trainer">
+        <h4>Magic Patterns</h4>
+        <p class="trainer-tip">Transform a solved cube configuration into geometric art displays:</p>
+        
+        <button class="algo-btn" onclick="playPattern('checkerboard')">
+          <span>Checkerboard Matrix</span>
+          <small>U2 D2 R2 L2 F2 B2</small>
+        </button>
+        
+        <button class="algo-btn" onclick="playPattern('cubeincube')">
+          <span>Cube-in-a-Cube Nest</span>
+          <small>F L F U' R U F2 L2...</small>
+        </button>
+      </div>
+
+    </div>
+  </div> <div id="guide">
+    <div class="anchor" id="anchor3" style="transform: translateZ(3px) translateY(-33.33%) rotate(-270deg) translateY(66.67%)"></div>
+    <div class="anchor" id="anchor2" style="transform: translateZ(3px) translateY(-33.33%) rotate(-180deg) translateY(66.67%)"></div>
+    <div class="anchor" id="anchor1" style="transform: translateZ(3px) translateY(-33.33%) rotate(-90deg) translateY(66.67%)"></div>
+    <div class="anchor" id="anchor0" style="transform: translateZ(3px) translateY(-33.33%) rotate(0deg) translateY(66.67%)"></div>
+  </div>
+
+  <script src="shuffle.js"></script>
+  <script src="deck.js"></script>
 </body>
 </html>
