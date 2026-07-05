@@ -7,6 +7,7 @@
 
 A high-performance, fully interactive 3D Rubik's Cube simulator built entirely from scratch using Vanilla Web Technologies. This project pushes the boundaries of CSS 3D transforms and Vanilla JavaScript to deliver a production-grade speedcubing environment complete with analytics, algorithmic macros, and gamification.
 
+![Rubik's Cube Preview](screenshot.png)
 
 ---
 
@@ -30,6 +31,7 @@ A high-performance, fully interactive 3D Rubik's Cube simulator built entirely f
 ├── shuffle.js      # Mathematical matrix engine, WCA scrambles, and 3D coordinate tracker
 ├── deck.js         # Dashboard controller: PB caching, macros, stopwatch, and keybindings
 └── README.md       # Project documentation
+
 ## 🚀 Live Demo
 👉 **[Play the Simulator Here!](https://abaranwal03.github.io/rubiks-cube-simulator/)**
 
