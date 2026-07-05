@@ -82,7 +82,6 @@ cd Rubikscube
 | Rotate Camera | Click and drag anywhere in the empty background space |
 | Rotate Face (Clockwise) | Click any outer edge piece |
 | Rotate Face (Counter-Clockwise) | `Shift` + Click any outer edge piece |
-| Rotate Middle Slice | Click and drag any center piece in the desired direction |
 
 ### ⌨️ Keyboard Bindings (Standard Notation)
 
@@ -104,6 +103,7 @@ cd Rubikscube
 - [ ] Migrate the 3D CSS rendering engine to **Three.js (WebGL)** for dynamic lighting, shadows, and realistic plastic textures
 - [ ] Implement an official **WCA 15-second pre-solve inspection timer**
 - [ ] Add interactive data visualization charts (**Ao5, Ao12**) to track solve consistency over time
+- [ ] Implement inner-layer slice rotations (M, E, and S slices) with mouse-drag center detection
 
 ---
 
