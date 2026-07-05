@@ -10,7 +10,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](#-license)
 [![Made with Vanilla JS](https://img.shields.io/badge/dependencies-none-brightgreen?style=for-the-badge)](#)
 
-[**🚀 Live Demo**](https://github.com/abaranwal03/Rubikscube/) · [Features](#-key-features) · [Controls](#-controls--interactions) · [Roadmap](#-future-roadmap) · [Contributing](#-contributing)
+[**🚀 Live Demo**](https://abaranwal03.github.io/Rubikscube/) · [Features](#-key-features) · [Controls](#-controls--interactions) · [Roadmap](#-future-roadmap) · [Contributing](#-contributing)
 
 ![Rubik's Cube Preview](screenshot.png)
 
