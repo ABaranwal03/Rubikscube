@@ -1,123 +1,480 @@
 html, body {
-  height: 100%;
-  overflow: hidden;
-  background-color: #2F2F31;
-  }
-  .credits {
-  width: 100%;
-  top: 90%;
-  }
-  .text {
-  text-align: center;
-  font-family: Helvetica;
-  font-size: .8rem;
-  color: grey;
-  pointer-events: none;
-  }
-  .centered, .cube > .piece > .element > .sticker {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  }
-  .scene {
-  width: 100%;
-  height: 100%;
-  margin: 80px;
-  perspective: 1200px;
-  transform-style: preserve-3d;
-  }
-  .scene > .pivot {
-  width: 0;
-  height: 0;
-  transition: .18s;
-  }
-  .scene .anchor {
-  width: 2em;
-  height: 6em;
-  }
-  .scene div {
-  position: absolute;
-  transform-style: inherit;
-  }
-  #piece4 > .element.top > .sticker {
-  background-color: #DDD;
-  }
-  .cube {
-  font-size: 190%;
-  margin-left: -1em;
-  margin-top: -1em;
-  }
-  .cube > .piece {
-  width: 1.9em;
-  height: 1.9em;
-  }
-  .face {
-    display: inline-block;
-    border: 1px solid black;
-    width: 50px;
-    height: 50px;
-    margin: 2px;
+    height: 100%;
+    overflow: hidden;
+    background-color: #2F2F31;
+    }
+    .credits {
+    width: 100%;
+    top: 90%;
+    }
+    .text {
     text-align: center;
-    line-height: 1.2;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .cube > .piece > .element {
+    font-family: Helvetica;
+    font-size: .8rem;
+    color: grey;
+    pointer-events: none;
+    }
+    .centered, .cube > .piece > .element > .sticker {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    }
+    .scene {
+    width: 100%;
+    height: 100%;
+    margin: 80px;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+    }
+    .scene > .pivot {
+    width: 0;
+    height: 0;
+    transition: .18s;
+    }
+    .scene .anchor {
+    width: 2em;
+    height: 6em;
+    }
+    .scene div {
+    position: absolute;
+    transform-style: inherit;
+    }
+    #piece4 > .element.top > .sticker {
+    background-color: #DDD;
+    }
+    .cube {
+    font-size: 190%;
+    margin-left: -1em;
+    margin-top: -1em;
+    }
+    .cube > .piece {
+    width: 1.9em;
+    height: 1.9em;
+    }
+    .face {
+      display: inline-block;
+      border: 1px solid black;
+      width: 50px;
+      height: 50px;
+      margin: 2px;
+      text-align: center;
+      line-height: 1.2;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    .cube > .piece > .element {
+    width: 100%;
+    height: 100%;
+    background: #0A0A0A;
+    outline: 1px solid transparent;
+    border: 0.05em solid #0A0A0A;
+    border-radius: 10%;
+    }
+    
+    .cube > .piece > .element.left {
+    transform: rotateX(0deg) rotateY(-90deg) rotateZ(180deg) translateZ(1em);
+    }
+    .cube > .piece > .element.right {
+    transform: rotateX(0deg) rotateY(90deg) rotateZ(90deg) translateZ(1em);
+    }
+    .cube > .piece > .element.back {
+    transform: rotateX(0deg) rotateY(180deg) rotateZ(-90deg) translateZ(1em);
+    }
+    .cube > .piece > .element.front {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(1em);
+    }
+    .cube > .piece > .element.bottom {
+    transform: rotateX(-90deg) rotateY(0deg) rotateZ(-90deg) translateZ(1em);
+    }
+    .cube > .piece > .element.top {
+    transform: rotateX(90deg) rotateY(0deg) rotateZ(180deg) translateZ(1em);
+    }
+    
+    .cube > .piece > .element > .sticker {
+    transform: translateZ(2px);
+    width: 95%;
+    height: 95%;
+    border-radius: 10%;
+    outline: 1px solid transparent;
+    box-shadow: inset 0.05em 0.05em 0.2rem 0 rgba(255, 255, 255, 0.25), inset -0.05em -0.05em 0.2rem 0 rgba(0, 0, 0, 0.25);
+    }
+    
+    .cube > .piece > .element > .sticker.blue {
+    background-color: #001ca8;
+    }
+    .cube > .piece > .element > .sticker.green {
+    background-color: #006E16;
+    }
+    .cube > .piece > .element > .sticker.white {
+    background-color: #DDD;
+    }
+    .cube > .piece > .element > .sticker.yellow {
+    background-color: #E0AE00;
+    }
+    .cube > .piece > .element > .sticker.orange {
+    background-color: #FF5000;
+    }
+    .cube > .piece > .element > .sticker.red {
+    background-color: #DF0500;
+    }
+  /* =========================================================================
+   ADDITIONAL APP UI WORKSPACE FLEX LAYOUTS
+   ========================================================================= */
+
+#control-panel {
+  background: #1f1f21;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 2px solid #3e3e42;
+}
+
+button {
+  background: #4a4a4e;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #606066;
+}
+
+#solveButton {
+  background: #007acc;
+}
+#solveButton:hover {
+  background: #0098ff;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #aaa;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+}
+
+#side-controls {
+  position: absolute;
+  left: 20px;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10;
+}
+
+.control-tip {
+  color: #888;
+  font-family: sans-serif;
+  font-size: 0.75rem;
+  max-width: 160px;
+  margin-bottom: 5px;
+}
+
+#workspace {
+  display: flex;
   width: 100%;
-  height: 100%;
-  background: #0A0A0A;
-  outline: 1px solid transparent;
-  border: 0.05em solid #0A0A0A;
-  border-radius: 10%;
-  }
-  
-  .cube > .piece > .element.left {
-  transform: rotateX(0deg) rotateY(-90deg) rotateZ(180deg) translateZ(1em);
-  }
-  .cube > .piece > .element.right {
-  transform: rotateX(0deg) rotateY(90deg) rotateZ(90deg) translateZ(1em);
-  }
-  .cube > .piece > .element.back {
-  transform: rotateX(0deg) rotateY(180deg) rotateZ(-90deg) translateZ(1em);
-  }
-  .cube > .piece > .element.front {
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(1em);
-  }
-  .cube > .piece > .element.bottom {
-  transform: rotateX(-90deg) rotateY(0deg) rotateZ(-90deg) translateZ(1em);
-  }
-  .cube > .piece > .element.top {
-  transform: rotateX(90deg) rotateY(0deg) rotateZ(180deg) translateZ(1em);
-  }
-  
-  .cube > .piece > .element > .sticker {
-  transform: translateZ(2px);
-  width: 95%;
-  height: 95%;
-  border-radius: 10%;
-  outline: 1px solid transparent;
-  box-shadow: inset 0.05em 0.05em 0.2rem 0 rgba(255, 255, 255, 0.25), inset -0.05em -0.05em 0.2rem 0 rgba(0, 0, 0, 0.25);
-  }
-  
-  .cube > .piece > .element > .sticker.blue {
-  background-color: #001ca8;
-  }
-  .cube > .piece > .element > .sticker.green {
-  background-color: #006E16;
-  }
-  .cube > .piece > .element > .sticker.white {
-  background-color: #DDD;
-  }
-  .cube > .piece > .element > .sticker.yellow {
-  background-color: #E0AE00;
-  }
-  .cube > .piece > .element > .sticker.orange {
-  background-color: #FF5000;
-  }
-  .cube > .piece > .element > .sticker.red {
-  background-color: #DF0500;
-  }
+  height: calc(100% - 70px);
+}
+
+#tutorial-panel {
+  width: 320px;
+  background: #252526;
+  border-left: 2px solid #3e3e42;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  color: #e0e0e0;
+  font-family: sans-serif;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+  z-index: 5;
+}
+
+#tutorial-panel h3 {
+  margin-top: 0;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+}
+
+.slide-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.slide-view img {
+  max-width: 100%;
+  max-height: 220px;
+  border-radius: 6px;
+  border: 3px solid #111;
+}
+
+#info {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #007acc;
+}
+
+.slide-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* =========================================================================
+   PERFORMANCE DECK AND ALGORITHM TRAINER CARD UI
+   ========================================================================= */
+
+.deck-section {
+  background: #1e1e1f;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 12px;
+  text-align: center;
+  border: 1px solid #333;
+}
+
+#timer-display {
+  font-family: monospace;
+  font-size: 2.4rem;
+  color: #00ff66;
+  text-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
+  font-weight: bold;
+}
+
+.deck-label {
+  font-size: 0.7rem;
+  color: #777;
+  letter-spacing: 1px;
+  margin: 3px 0 0 0;
+  font-weight: bold;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.stats-grid span {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #007acc;
+  font-family: monospace;
+}
+
+#scramble-log {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #8a8a8f;
+  word-wrap: break-word;
+  max-height: 60px;
+  overflow-y: auto;
+  margin-top: 6px;
+  background: #111;
+  padding: 6px;
+  border-radius: 4px;
+  text-align: left;
+  line-height: 1.3;
+}
+
+.algo-trainer {
+  text-align: left !important;
+}
+
+.algo-trainer h4 {
+  margin-bottom: 4px;
+}
+
+.trainer-tip {
+  font-size: 0.75rem;
+  color: #666;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+
+.algo-btn {
+  width: 100%;
+  background: #2a2a2c !important;
+  border: 1px solid #444 !important;
+  padding: 10px !important;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px !important;
+  text-align: left;
+}
+
+.algo-btn:hover {
+  background: #3a3a3c !important;
+  border-color: #007acc !important;
+}
+
+.algo-btn span {
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.algo-btn small {
+  color: #007acc;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+/* =========================================================================
+   PRO DASHBOARD EXTENSIONS - PERFORMANCE DECK & CUSTOMIZATION ELEMENTS
+   ========================================================================= */
+
+.deck-section {
+  background: #1e1e1f;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 12px;
+  text-align: center;
+  border: 1px solid #333;
+}
+
+#timer-display {
+  font-family: monospace;
+  font-size: 2.4rem;
+  color: #00ff66;
+  text-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
+  font-weight: bold;
+}
+
+.deck-label {
+  font-size: 0.7rem;
+  color: #777;
+  letter-spacing: 1px;
+  margin: 3px 0 0 0;
+  font-weight: bold;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.stats-grid span {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #007acc;
+  font-family: monospace;
+}
+
+#scramble-log {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #8a8a8f;
+  word-wrap: break-word;
+  max-height: 60px;
+  overflow-y: auto;
+  margin-top: 6px;
+  background: #111;
+  padding: 6px;
+  border-radius: 4px;
+  text-align: left;
+  line-height: 1.3;
+}
+
+.algo-trainer {
+  text-align: left !important;
+}
+
+.algo-trainer h4 {
+  margin-bottom: 4px;
+}
+
+.trainer-tip {
+  font-size: 0.75rem;
+  color: #666;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+
+.algo-btn {
+  width: 100%;
+  background: #2a2a2c !important;
+  border: 1px solid #444 !important;
+  padding: 10px !important;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px !important;
+  text-align: left;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.algo-btn:hover {
+  background: #3a3a3c !important;
+  border-color: #007acc !important;
+}
+
+.algo-btn span {
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.algo-btn small {
+  color: #007acc;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+/* =========================================================================
+   FIXED CUSTOMIZATION THEME SHOP OVERRIDES
+   ========================================================================= */
+
+/* 1. ENVIRONMENT BACKGROUNDS (Changes the whole screen color) */
+body, body.bg-dark {
+  background: #0c0c0e !important;
+}
+
+body.bg-gradient {
+  background: radial-gradient(circle at center, #230b4d 0%, #0d0d1a 100%) !important;
+}
+
+/* 2. CUBE STICKER THEMES (Forces the stickers to change color) */
+
+/* Default / Classic Colors Explicit Definition */
+body .sticker.blue   { background-color: #0046ad; }
+body .sticker.green  { background-color: #009b48; }
+body .sticker.white  { background-color: #ffffff; }
+body .sticker.yellow { background-color: #ffd500; }
+body .sticker.orange { background-color: #ff5800; }
+body .sticker.red    { background-color: #b71234; }
+
+/* Pastel Palette Overrides (Enforced with higher specificity) */
+body.theme-pastel .sticker.blue   { background-color: #bae1ff !important; }
+body.theme-pastel .sticker.green  { background-color: #baffc9 !important; }
+body.theme-pastel .sticker.white  { background-color: #fdfdff !important; }
+body.theme-pastel .sticker.yellow { background-color: #ffffba !important; }
+body.theme-pastel .sticker.orange { background-color: #ffdfba !important; }
+body.theme-pastel .sticker.red    { background-color: #ffb3ba !important; }
+
+/* Blindfolded Mode Dynamic Wipeout */
+body.blindfolded .sticker {
+  background-color: #1a1a1a !important;
+  box-shadow: inset 0 0 15px #000000 !important;
+  border: 1px solid #111111 !important;
+}
