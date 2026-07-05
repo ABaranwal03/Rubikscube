@@ -7,6 +7,7 @@
 
 A high-performance, fully interactive 3D Rubik's Cube simulator built entirely from scratch using Vanilla Web Technologies. This project pushes the boundaries of CSS 3D transforms and Vanilla JavaScript to deliver a production-grade speedcubing environment complete with analytics, algorithmic macros, and gamification.
 
+
 ---
 
 ## ✨ Key Features
